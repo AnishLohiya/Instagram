@@ -28,24 +28,6 @@ class _PostCardState extends State<PostCard> {
   @override
   void initState() {
     super.initState();
-    fetchCommentLen();
-  }
-
-  fetchCommentLen() async {
-    try {
-      QuerySnapshot snap = await FirebaseFirestore.instance
-          .collection('posts')
-          .doc(widget.snap['postId'])
-          .collection('comments')
-          .get();
-      commentLen = snap.docs.length;
-    } catch (err) {
-      showSnackBar(
-        err.toString(),
-        context,
-      );
-    }
-    setState(() {});
   }
 
   deletePost(String postId) async {
@@ -200,7 +182,6 @@ class _PostCardState extends State<PostCard> {
               ],
             ),
           ),
-          // LIKE, COMMENT SECTION OF THE POST
           Row(
             children: <Widget>[
               LikeAnimation(
@@ -241,7 +222,6 @@ class _PostCardState extends State<PostCard> {
               ))
             ],
           ),
-          //DESCRIPTION AND NUMBER OF COMMENTS
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Column(
@@ -281,13 +261,6 @@ class _PostCardState extends State<PostCard> {
                 ),
                 InkWell(
                   child: Container(
-                    child: Text(
-                      'View all $commentLen comments',
-                      style: const TextStyle(
-                        fontSize: 16,
-                        color: secondaryColor,
-                      ),
-                    ),
                     padding: const EdgeInsets.symmetric(vertical: 4),
                   ),
                   onTap: () {},

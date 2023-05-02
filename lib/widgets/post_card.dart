@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:instagram/screens/comments_screen.dart';
 import 'package:instagram/utils/colors.dart';
 import 'package:instagram/models/user.dart' as model;
 import 'package:instagram/providers/user_provider.dart';
@@ -227,13 +226,7 @@ class _PostCardState extends State<PostCard> {
                 icon: const Icon(
                   Icons.comment_outlined,
                 ),
-                onPressed: () => Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => CommentsScreen(
-                      postId: widget.snap['postId'].toString(),
-                    ),
-                  ),
-                ),
+                onPressed: () {},
               ),
               IconButton(
                   icon: const Icon(
@@ -297,13 +290,7 @@ class _PostCardState extends State<PostCard> {
                     ),
                     padding: const EdgeInsets.symmetric(vertical: 4),
                   ),
-                  onTap: () => Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => CommentsScreen(
-                        postId: widget.snap['postId'].toString(),
-                      ),
-                    ),
-                  ),
+                  onTap: () {},
                 ),
                 Container(
                   child: Text(
